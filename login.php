@@ -47,6 +47,20 @@
       <div class="container mb-5">
         <div class="row justify-content-center">
           <div class="col col-lg-6 col-md-8">
+            <?php
+              if($_GET["loginfailed"]) {
+                if($_GET["loginfailed"]=="emailnotfound") {
+                  $failure = "Email hasn't been registered.";
+                } else {
+                  $failure = "Password doesn't match.";
+                }
+                
+                echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    Failed login atempt: '.$failure.'
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>';
+              }
+            ?>
             <div class="card">
               <div class="card-header">
                 <h2>Login</h2>

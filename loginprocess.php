@@ -12,11 +12,17 @@
             while($row = $result->fetch_assoc()) {
                 if($row["password"] !== $password) {
                     echo "<p>Password not matched</p>";
+                    header("Location: login.php?loginfailed=passwordnotmatch");
+                    exit();
                 } else {
                     header("Location: loginpage.php?username=".$row["username"]);
                     exit();
                 }
             }
+        } else {
+            echo "<p>Password not matched</p>";
+                    header("Location: login.php?loginfailed=emailnotfound");
+                    exit();
         }
     }
 ?>
