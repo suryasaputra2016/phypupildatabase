@@ -15,7 +15,7 @@
                     header("Location: login.php?loginfailed=passwordnotmatch");
                     exit();
                 } else {
-                    header("Location: loginpage.php?username=".$row["username"]);
+                    header("Location: accountpage.php?username=".$row["username"]);
                     exit();
                 }
             }

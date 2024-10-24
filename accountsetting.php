@@ -36,25 +36,10 @@
           <div class="collapse navbar-collapse justify-content-end" id="nav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link" href="./accountpage.php?username=<?=$username?>">Dashboard</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Services</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Resources</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Quiz</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./contact.html">Contact</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Account</a>
+                <a class="nav-link active" aria-current="page" href="#">Setting</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="./login.php">Logout</a>
@@ -85,8 +70,15 @@
                   <input type="hidden" name="old-user-name" value="<?= $username?>">
                   <br>
                   <div class="d-grid">
-                    <button class="btn btn-primary" type="submit">Save</button>
+                    <button class="btn btn-primary" type="submit">Save Changes</button>
                   </div>
+                </form>
+                <br>
+                <form action="./deleteconfirmation.php" method="POST">
+                    <input type="hidden" name="username" value=<?= $username?>>
+                    <div class="d-grid">
+                      <button class="btn delete-button" type="submit">Delete Account</button>
+                    </div>
                 </form>
               </div>
             </div>

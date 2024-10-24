@@ -3,13 +3,11 @@
 
     if($_SERVER["REQUEST_METHOD"]=="POST") {
         $username = $_POST["username"];
-        $email = $_POST["email"];
-        $oldusername = $_POST["old-user-name"];
 
-        $query = "UPDATE users SET username='$username', email='$email' WHERE username='$oldusername'";
+        $query = "DELETE FROM users WHERE username='$username'";
 
         if($connection->query($query)) {
-            header("Location: accountpage.php?username=".$username);
+            header("Location: signup.html");
             exit();
         } else {
             echo "Failed: ".mysqli_error($connection);

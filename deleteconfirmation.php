@@ -19,27 +19,6 @@
           <div class="collapse navbar-collapse justify-content-end" id="nav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Services</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Resources</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Quiz</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./contact.html">Contact</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href=<?= "./accountsetting.php?username=".$_GET["username"]?>>Account</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="./login.php">Logout</a>
               </li>
             </ul>
@@ -48,13 +27,33 @@
       </nav>
 
       <div class="container mb-5">
-        <?php
-            echo "<p>Welcome back, ".$_GET["username"]."</p>";
-        ?>
-        <h1>Dashboard</h1>
-      </div>
+        <div class="row justify-content-center">
+          <div class="col col-lg-6 col-md-8">
+            <div class="card">
+              <div class="card-header">
+                <h2>Deleting Account</h2>
+              </div>
+              <div class="card-body">
+                <h3 class="card-text"><?= "Are you sure you want to delete account: ".$_POST["username"] ?></h3>
+                <form action="./deleteuser.php" method="POST">
+                  <input type="hidden" name="username" value=<?= $_POST["username"] ?>>
+                  <br>
+                  <div class="d-grid">
+                    <button class="btn delete-button" type="submit">Delete</button>
+                  </div>
+                </form>
 
-      <div class="container">
+                <br>
+                <form action="./dashboardredirect.php" method="POST">
+                    <input type="hidden" name="username" value=<?= $_POST["username"] ?>>
+                    <div class="d-grid">
+                        <button class="btn delete-btn-primary">Cancel</button>
+                    </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <footer id="footer" class="text-center">

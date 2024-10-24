@@ -38,3 +38,12 @@ a, input, h1, h2, h3, .large-symbol {
   navbar-toggler:focus{
     box-shadow: none !important;
   }
+
+  .btn.delete-button {
+    background-color: red !important;
+    border-color: red !important;
+  }
+
+  .nav-link.active {
+    border-bottom: 2px solid white !important;
+  }

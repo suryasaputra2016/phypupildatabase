@@ -9,7 +9,7 @@
         $query = "INSERT INTO users(username, email, password) VALUES ('$username', '$email', '$password')";
 
         if($connection->query($query)) {
-            header("Location: index.html");
+            header("Location: accountpage.php?username=".$username);
             exit();
         } else {
             echo "Failed: ".mysqli_error($connection);
