@@ -2,7 +2,7 @@
 $host = "localhost";
 $username = "root";
 $password = "";
-$database = "phypupil";
+$database = "db_phypupil";
 
 $connection = new mysqli($host, $username, $password, $database);
 if ($connection->connect_error) {
