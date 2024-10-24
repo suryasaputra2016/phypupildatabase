@@ -13,9 +13,8 @@
                 if($row["password"] !== $password) {
                     echo "<p>Password not matched</p>";
                 } else {
-                    echo "<h1>Welcome Back</h1>";
-                    echo "<p>".$row["username"]."</p>";
-                    echo "<p>".$row["password"]."</p>";
+                    header("Location: loginpage.php?username=".$row["username"]);
+                    exit();
                 }
             }
         }
