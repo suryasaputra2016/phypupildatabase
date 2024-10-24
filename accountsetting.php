@@ -82,6 +82,7 @@
                     <label for="email" class="form-label">Email:</label>
                     <input type="email" id="email" class="form-control" name="email" value=<?= $email?> required>
                   </div>
+                  <input type="hidden" name="old-user-name" value="<?= $username?>">
                   <br>
                   <div class="d-grid">
                     <button class="btn btn-primary" type="submit">Save</button>
