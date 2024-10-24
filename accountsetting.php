@@ -1,3 +1,20 @@
+<?php
+    include "connection.php";
+
+    if($_SERVER["REQUEST_METHOD"]=="GET") {
+        $username = $_GET["username"];
+
+        $query = "SELECT email FROM users WHERE username = '$username'";
+        $result = $connection->query($query);
+
+        if($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $email = $row['email'];
+            }
+        } 
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +54,7 @@
                 <a class="nav-link" href="./contact.html">Contact</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href=<?= "./accountsetting.php?username=".$_GET["username"]?>>Account</a>
+                <a class="nav-link" href="#">Account</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="./login.php">Logout</a>
@@ -48,13 +65,32 @@
       </nav>
 
       <div class="container mb-5">
-        <?php
-            echo "<p>Welcome back, ".$_GET["username"]."</p>";
-        ?>
-        <h1>Dashboard</h1>
-      </div>
-
-      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col col-lg-6 col-md-8">
+            <div class="card">
+              <div class="card-header">
+                <h2>Account Setting</h2>
+              </div>
+              <div class="card-body">
+                <form action="./edituser.php" method="POST">
+                  <div>
+                    <label for="username" class="form-label">Username:</label>
+                    <input type="text" id="username" class="form-control" name="username" value=<?= $username?> required>
+                  </div>
+                  <br>
+                  <div>
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" id="email" class="form-control" name="email" value=<?= $email?> required>
+                  </div>
+                  <br>
+                  <div class="d-grid">
+                    <button class="btn btn-primary" type="submit">Save</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <footer id="footer" class="text-center">
