@@ -14,6 +14,5 @@ CREATE TABLE inquiries(
     email VARCHAR(255) NOT NULL,
     subject VARCHAR(255) NOT NULL,
     body TEXT
-
-)
+);
 
