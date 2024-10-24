@@ -40,6 +40,14 @@
       </nav>
 
       <div class="container">
+            <?php
+              if($_GET["inquiry"]) {
+                echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                    your inquiry has been sent successfully
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>';
+              }
+            ?>
         <div class="row">
             <div class="col col-lg-6 col-md-3"></div>
             <div class="col col-lg-6 col-md-9 col-12">
@@ -104,25 +112,50 @@
                 <div class="card">
                     <div class="card-header"><h2>Send us Your Business Inquiry</h2></div>
                     <div class="card-body">
-                        <form action="">
+                        <form action="./addinquiry.php" method="POST">
                             <div>
                                 <label for="fullname" class="form-label">Full name:</label>
-                                <input type="text" id="fullname" placeholder="e.g. John Smith" required class="form-control">
+                                <input 
+                                    type="text" 
+                                    id="fullname" 
+                                    placeholder="e.g. John Smith" 
+                                    required 
+                                    class="form-control"
+                                    name="fullname">
                             </div>
                             <br>
                             <div>
                                 <label for="email" class="form-label">Email:</label>
-                                <input type="text" id="email" required placeholder="youremail@domain.org" class="form-control">
+                                <input 
+                                    type="text" 
+                                    id="email" 
+                                    placeholder="youremail@domain.org"
+                                    required 
+                                    class="form-control"
+                                    name="email">
                             </div>
                             <br>
                             <div>
                                 <label for="subject" class="form-label">Subject:</label>
-                                <input type="text" id="subject" required placeholder="Topic" class="form-control">
+                                <input 
+                                    type="text" 
+                                    id="subject"
+                                    placeholder="Topic" 
+                                    required 
+                                    class="form-control"
+                                    name="subject">
                             </div>
                             <br>
                             <div>
                                 <label for="query" class="form-label">Inquiry:</label>
-                                <textarea name="query" id="query" required placeholder="How can we help?" class="form-control"></textarea>
+                                <textarea 
+                                    name="query" 
+                                    id="query" 
+                                    placeholder="How can we help?" 
+                                    required 
+                                    class="form-control"
+                                    name="query"
+                                ></textarea>
                             </div>
                             <br>
                             <div class="d-grid">
